@@ -124,6 +124,7 @@ def save_volume(volume, aff, header, path, res=None, dtype=None, n_dims=3):
             res = reformat_to_list(res, length=n_dims, dtype=None)
             nifty.header.set_zooms(res)
         nib.save(nifty, path)
+    print("Volume saved!!!")
 
 
 def get_volume_info(path_volume, return_volume=False, aff_ref=None):
@@ -213,9 +214,10 @@ def get_list_labels(label_list=None, labels_dir=None, save_label_list=None, FS_s
         raise Exception('either label_list, path_label_list or labels_dir should be provided')
 
     # sort labels in neutral/left/right according to FS labels
+    print(list(label_list))
     n_neutral_labels = 0
     if FS_sort:
-        neutral_FS_labels = [0, 14, 15, 16, 21, 22, 23, 24, 72, 77, 80, 85, 101, 102, 103, 104, 105, 165, 251, 252, 253,
+        neutral_FS_labels = [0, 14, 15, 16, 21, 22, 23, 24, 72, 77, 80, 85, 101, 102, 103, 104, 105, 165, 172, 251, 252, 253,
                              254, 255, 258, 259, 331, 332, 333, 334, 335, 336, 337, 338, 339, 340]
         neutral = list()
         left = list()
